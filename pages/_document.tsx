@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import Document, { Head, Html, Main, NextScript } from "next/document"
 
 class MyDocument extends Document {
@@ -5,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="description" content="Meta description" />
+          <meta name="description" content="Image gallery" />
           <meta name="theme-color" content="#f4f5f7" />
           <link rel="icon" type="image/svg+xml" href="favicon.svg" />
           <link
