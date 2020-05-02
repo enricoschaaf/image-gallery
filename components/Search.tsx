@@ -1,9 +1,14 @@
 export const Search = ({ searchRef, setInput }) => {
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={e => {
         e.preventDefault()
         setInput(e.target[0].value)
+        history.replaceState(
+          { path: `${location.origin}/${e.target[0].value}` },
+          "",
+          `${location.origin}/${e.target[0].value.toLowerCase()}`
+        )
         e.target[0].value = ""
         e.target[0].blur()
       }}

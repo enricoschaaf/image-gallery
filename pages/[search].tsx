@@ -1,7 +1,7 @@
 import { Page } from "../components"
 
-const Index = () => {
+const Search = () => {
   return <Page />
 }
 
-export default Index
+export default Search

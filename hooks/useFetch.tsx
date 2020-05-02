@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react"
 
-export function useFetch(key: string, url: string) {
-  const [loading, setLoading] = useState(true)
+export function useFetch(url: string) {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   useEffect(() => {
-    if (key) {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => setData(data))
-        .catch((error) => setError(error))
-      setLoading(false)
-    }
+    const controller = new AbortController()
+    fetch(url, { signal: controller.signal })
+      .then(res => res.json())
+      .then(data => setData(data))
+      .catch(error => setError(error))
+    return () => controller.abort()
   }, [url])
-  return [loading, error, data]
+  return { data, error }
 }
