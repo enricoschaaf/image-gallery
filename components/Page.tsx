@@ -22,12 +22,12 @@ function searchKeyboardShortcut(
 const fetchImages = async (input, page = 1) => {
   if (input === " ") {
     const res = await fetch(
-      `https://api.unsplash.com/photos/?page=${page}&client_id=jcMNsi9XLMv8SE8mcoYq2cXu0JfuUrFh01IbonJSvAU`
+      `https://api.unsplash.com/photos/?page=${page}&client_id=1aPC6HMbXRHmh4fY6QzSpY7OKhWf3x1zmx9NnNf8qKw`
     )
     return await res.json()
   }
   const res = await fetch(
-    `https://api.unsplash.com/search/photos?page=${page}&query=${input}&client_id=jcMNsi9XLMv8SE8mcoYq2cXu0JfuUrFh01IbonJSvAU`
+    `https://api.unsplash.com/search/photos?page=${page}&query=${input}&client_id=1aPC6HMbXRHmh4fY6QzSpY7OKhWf3x1zmx9NnNf8qKw`
   )
   const { results } = await res.json()
   return results
@@ -121,7 +121,8 @@ export const Page = () => {
   if (status === "error") {
     return <Error searchRef={searchRef} setInput={setInput} />
   }
-  if (data && data.flat().length == 0)
+  console.log(data)
+  if (data[0]?.length == 0)
     return <NoData searchRef={searchRef} setInput={setInput} />
 
   if (data)
