@@ -69,10 +69,9 @@ const Loading = ({ input, setInput, searchRef }) => (
   <>
     <Head>
       <title>
-        {input !== ""
+        {input && input !== " "
           ? `${input.charAt(0).toUpperCase()}${input.slice(1).toLowerCase()} - `
           : ""}
-        Image Gallery
       </title>
     </Head>
     <div className=" px-4 sm:px-0 pb-4 sm:pb-6 lg:pb-8">
@@ -122,7 +121,7 @@ export const Page = () => {
   if (status === "error") {
     return <Error searchRef={searchRef} setInput={setInput} />
   }
-  if (status === "success" && data.flat().length == 0)
+  if (data && data.flat().length == 0)
     return <NoData searchRef={searchRef} setInput={setInput} />
 
   if (data)
@@ -130,7 +129,7 @@ export const Page = () => {
       <>
         <Head>
           <title>
-            {input
+            {input && input !== " "
               ? `${input.charAt(0).toUpperCase()}${input
                   .slice(1)
                   .toLowerCase()} - `
