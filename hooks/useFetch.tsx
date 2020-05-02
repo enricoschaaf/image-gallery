@@ -8,7 +8,9 @@ export function useFetch(url: string) {
     fetch(url, { signal: controller.signal })
       .then(res => res.json())
       .then(data => setData(data))
-      .catch(error => setError(error))
+      .catch(error => {
+        if (error.name !== "AbortError") setError(error)
+      })
     return () => controller.abort()
   }, [url])
   return { data, error }
