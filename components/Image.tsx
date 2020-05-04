@@ -26,6 +26,7 @@ export const Image = ({ result, offsetWidth }) => {
     }
     return (
       <img
+        decoding="async"
         onError={() => setError(true)}
         ref={ref}
         style={{ backgroundColor: result.color, color: result.color }}

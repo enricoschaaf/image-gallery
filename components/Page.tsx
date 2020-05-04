@@ -22,7 +22,7 @@ function searchKeyboardShortcut(
 const fetchImages = async (input, page = 1) => {
   if (input === " ") {
     const res = await fetch(
-      `https://api.unsplash.com/photos/?page=${page}&client_id=1aPC6HMbXRHmh4fY6QzSpY7OKhWf3x1zmx9NnNf8qKw`
+      `https://api.unsplash.com/photos/?page=${page}&client_id=${process.env.CLIENT_ID}`
     )
     return await res.json()
   }

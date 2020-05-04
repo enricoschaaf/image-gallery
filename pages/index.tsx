@@ -7,7 +7,7 @@ const Index = () => {
       <Head>
         <link
           rel="preload"
-          href="https://api.unsplash.com/photos/?page=1&client_id=1aPC6HMbXRHmh4fY6QzSpY7OKhWf3x1zmx9NnNf8qKw"
+          href={`https://api.unsplash.com/photos/?page=1&client_id=${process.env.CLIENT_ID}`}
           as="fetch"
           crossOrigin="anonymous"
         />
